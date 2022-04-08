@@ -46,7 +46,6 @@ class AddonEndTimeNow(Operator):
         return {'FINISHED'}
 
 def draw_menu(self, context):
-    # if context.space_data.type == 'SEQUENCE_EDITOR':
     layout = self.layout
     layout.separator()
     layout.operator(AddonStartTimeNow.bl_idname, text="現在のフレームを開始フレームにする")
