@@ -1,7 +1,7 @@
 '''
 右クリックを押すと表示されるコンテキストメニュー内に
 タイムラインの開始位置と終了位置を指定するコマンドを追加する
-https://blender.stackexchange.com/questions/150101/python-how-to-add-items-in-context-menu-in-2-8
+ref: https://blender.stackexchange.com/questions/150101/python-how-to-add-items-in-context-menu-in-2-8
 '''
 
 import bpy                                          # bpy : Blender module
