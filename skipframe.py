@@ -8,7 +8,7 @@ from bpy.types import Operator                      # for process
 
 # addon information
 bl_info = {
-    "name": "translation n frame",                                      # addon name
+    "name": "Skip frame",                                               # addon name
     "author": "textcunma",                                              # addon author
     "version": (1, 0),                                                  # addon version
     "blender": (3, 0, 0),                                               # Blender version
@@ -17,7 +17,7 @@ bl_info = {
     "support": "TESTING",                                               # addon classification
     "wiki_url": "https://github.com/textcunma/MyBlenderAddon",       # addon description (GitHub URL etc...)
     "tracker_url": "https://github.com/textcunma/MyBlenderAddon",    # addon support (GitHub URL etc...)
-    "category": "TIMELINE"                                                  # addon category
+    "category": "User Interface"                                                  # addon category
 }
 
 # 1フレームを移動する

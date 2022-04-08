@@ -9,7 +9,7 @@ from bpy.types import Operator                      # for process
 
 # addon information
 bl_info = {
-    "name": "ContextStartEnd",                                                              # addon name
+    "name": "Click Start End",                                                              # addon name
     "author": "textcunma",                                                                  # addon author
     "version": (1, 0),                                                                      # addon version
     "blender": (3, 0, 0),                                                                   # Blender version
@@ -66,9 +66,9 @@ def register():
 # アドオン無効時の処理
 # process when disable this addon
 def unregister():
+    bpy.types.DOPESHEET_MT_context_menu.remove(draw_menu)
     for c in classes:                               # register class
         bpy.utils.register_class(c) 
-    bpy.types.DOPESHEET_MT_context_menu.remove(draw_menu)
 
 if __name__ == "__main__":
     register()
