@@ -27,8 +27,6 @@ class AddonTranslationFrameNum1_Forward(Operator):
     bl_label = "forward 1 frame"                                            # label on menu
     bl_description = "forward 1 frame on timeline"                          # description on menu when hover mouse
     bl_options = {'REGISTER', 'UNDO'}                                       # process attribute
-                                                                            #'REGISTER'     :for register menu
-                                                                            #'UNDO'         :for return unprocess
 
     #実行時に呼び出されるメイン処理
     # main process when run program
@@ -43,8 +41,6 @@ class AddonTranslationFrameNum2_Forward(Operator):
     bl_label = "forward 2 frame"                                            # label on menu
     bl_description = "forward 2 frame on timeline"                          # description on menu when hover mouse
     bl_options = {'REGISTER', 'UNDO'}                                       # process attribute
-                                                                            #'REGISTER'     :for register menu
-                                                                            #'UNDO'         :for return unprocess
 
     #実行時に呼び出されるメイン処理
     # main process when run program
@@ -59,8 +55,6 @@ class AddonTranslationFrameNum3_Forward(Operator):
     bl_label = "forward 3 frame"                                            # label on menu
     bl_description = "forward 3 frame on timeline"                          # description on menu when hover mouse
     bl_options = {'REGISTER', 'UNDO'}                                       # process attribute
-                                                                            #'REGISTER'     :for register menu
-                                                                            #'UNDO'         :for return unprocess
 
     #実行時に呼び出されるメイン処理
     # main process when run program
@@ -75,8 +69,6 @@ class AddonTranslationFrameNum4_Forward(Operator):
     bl_label = "forward 4 frame"                                            # label on menu
     bl_description = "forward 4 frame on timeline"                          # description on menu when hover mouse
     bl_options = {'REGISTER', 'UNDO'}                                       # process attribute
-                                                                            #'REGISTER'     :for register menu
-                                                                            #'UNDO'         :for return unprocess
 
     #実行時に呼び出されるメイン処理
     # main process when run program
@@ -91,8 +83,6 @@ class AddonTranslationFrameNum1_Backward(Operator):
     bl_label = "backward 1 frame"                                            # label on menu
     bl_description = "backward 1 frame on timeline"                          # description on menu when hover mouse
     bl_options = {'REGISTER', 'UNDO'}                                       # process attribute
-                                                                            #'REGISTER'     :for register menu
-                                                                            #'UNDO'         :for return unprocess
 
     #実行時に呼び出されるメイン処理
     # main process when run program
@@ -107,8 +97,6 @@ class AddonTranslationFrameNum2_Backward(Operator):
     bl_label = "backward 2 frame"                                            # label on menu
     bl_description = "backward 2 frame on timeline"                          # description on menu when hover mouse
     bl_options = {'REGISTER', 'UNDO'}                                       # process attribute
-                                                                            #'REGISTER'     :for register menu
-                                                                            #'UNDO'         :for return unprocess
 
     #実行時に呼び出されるメイン処理
     # main process when run program
@@ -123,8 +111,6 @@ class AddonTranslationFrameNum3_Backward(Operator):
     bl_label = "backward 3 frame"                                            # label on menu
     bl_description = "backward 3 frame on timeline"                          # description on menu when hover mouse
     bl_options = {'REGISTER', 'UNDO'}                                       # process attribute
-                                                                            #'REGISTER'     :for register menu
-                                                                            #'UNDO'         :for return unprocess
 
     #実行時に呼び出されるメイン処理
     # main process when run program
@@ -139,8 +125,6 @@ class AddonTranslationFrameNum4_Backward(Operator):
     bl_label = "backward 4 frame"                                            # label on menu
     bl_description = "backward 4 frame on timeline"                          # description on menu when hover mouse
     bl_options = {'REGISTER', 'UNDO'}                                       # process attribute
-                                                                            #'REGISTER'     :for register menu
-                                                                            #'UNDO'         :for return unprocess
 
     #実行時に呼び出されるメイン処理
     # main process when run program
@@ -223,11 +207,22 @@ def unregistershortcut():
         km.keymap_items.remove(kmi)
     addon_keymaps.clear()
 
+
+def draw_menu(self,context):
+    layout = self.layout
+    layout.separator()
+    layout.operator(AddonTranslationFrameNum2_Forward.bl_idname, text="+2")
+    layout.operator(AddonTranslationFrameNum3_Forward.bl_idname, text="+3")
+    layout.operator(AddonTranslationFrameNum3_Backward.bl_idname, text="-2")
+    layout.operator(AddonTranslationFrameNum3_Backward.bl_idname, text="-3")
+
 # アドオン有効時の処理
 # process when activate this addon
 def register():
     for c in classes:                               # register class
-        bpy.utils.register_class(c) 
+        bpy.utils.register_class(c)
+    bpy.types.TIME_MT_editor_menus.append(draw_menu)
+    bpy.types.DOPESHEET_MT_editor_menus.append(draw_menu)
     registershortcut()                              # register shortcut key
 
 # アドオン無効時の処理
@@ -236,6 +231,8 @@ def unregister():
     unregistershortcut()                            # register shortcut key
     for c in classes:                               # unregister class
         bpy.utils.unregister_class(c)
+    bpy.types.TIME_MT_editor_menus.remove(draw_menu)
+    bpy.types.DOPESHEET_MT_editor_menus.remove(draw_menu)
 
 if __name__ == "__main__":
     register()
