@@ -1,10 +1,10 @@
 # MyBlenderAddon
-self-made Blender Addon
+self-made Blender Addon(Blender3.0,3.1動作確認)
 
 ## 導入方法
 [【Blender】アドオンのインストール方法【具体的なやり方・GithubからのDL方法・うまくいかない時の対処法など】](https://bookyakuno.com/how-to-install-addon/)の「*単一ファイルをインストールする*」に書かれています
 
-## Skip frame アドオン
+## skipframe アドオン
 アニメーション作業時、数フレームスキップにするアドオン。2コマ作画や3コマ作画などリミテッドアニメーション作成に便利。ドープシート、タイムライン画面においてボタンが表示。
 
 ドープシート画面
@@ -27,7 +27,7 @@ self-made Blender Addon
 
 ソースコード：skipframe.py
 
-## Click Start End アドオン
+## set_start&end アドオン
 アニメーション作業時、現時点のフレームを開始フレームまたは終了フレームにする機能をコンテキストメニューに追加するアドオン。
 ※コンテキストメニューは右クリックを押すと表示
 
