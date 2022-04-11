@@ -28,11 +28,11 @@ self-made Blender Addon(Blender3.0,3.1動作確認)
 ソースコード：skipframe.py
 
 ## set_start&end アドオン
-アニメーション作業時、現時点のフレームを開始フレームまたは終了フレームにする機能をコンテキストメニューに追加するアドオン。
-※コンテキストメニューは右クリックを押すと表示
+アニメーション作業時、現時点のフレームを開始フレームまたは終了フレームにする機能をコンテクストメニューに追加するアドオン。
+※コンテクストメニューは右クリックを押すと表示
 
 <div align="center">
-    <img src="./assets/set_startend.jpg" width="70%"　alt="アドオン適用時のコンテキストメニュー内">
+    <img src="./assets/set_startend.jpg" width="70%"　alt="アドオン適用時のコンテクストメニュー内">
 </div>
 
 
